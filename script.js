@@ -1,30 +1,13 @@
 console.log("To start a game, write and enter startGame();");
 
+let point = 0;
+
 function computerPlay(){
     return Math.floor(Math.random() * 3);
 }
 
 function userPlay(){
     return window.prompt("Enter rock, paper, or scissors below.","rock");
-}
-
-let point = 0;
-
-function startGame(){
-   for (let i = 0; i<=4; i++){
-       game();
-   }
-   tallyPoints(point);
-   point = 0;
-}
-
-function game(){
-    userSelection = userPlay();
-    userSelection = convertUserInput(userSelection);
-    computerSelection = computerPlay();
-    computerSelection = convertComputerInput(computerSelection);
-    compareSelection(userSelection,computerSelection);
-    addPoint(userSelection,computerSelection);
 }
 
 function convertUserInput(userSelection){
@@ -64,7 +47,7 @@ function addPoint(userSelection,computerSelection){
 }
 
 function tallyPoints(point){
-    if(point > "2"){
+    if(point > 2){
         return console.log(`You won ${point} out of 5 rounds. Congratulations! You won!`);
     }
     else{
@@ -72,3 +55,20 @@ function tallyPoints(point){
     }
 }
 
+function game(){
+    userSelection = userPlay();
+    userSelection = convertUserInput(userSelection);
+    computerSelection = computerPlay();
+    computerSelection = convertComputerInput(computerSelection);
+    compareSelection(userSelection,computerSelection);
+    addPoint(userSelection,computerSelection);
+}
+
+function startGame(){
+    for (let i = 0; i<=4; i++){
+        game();
+    }
+    tallyPoints(point);
+    point = 0;
+ }
+ 
