@@ -15,6 +15,7 @@ function startGame(){
        game();
    }
    tallyPoints(point);
+   resetPoints(point);
 }
 
 function game(){
@@ -69,5 +70,9 @@ function tallyPoints(point){
     else{
         return console.log(`You won ${point} out of 5 rounds. Sorry, you lost!`);
     }
+}
+
+function resetPoints(point){
+    return point = 0;
 }
 
