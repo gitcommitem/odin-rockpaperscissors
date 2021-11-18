@@ -19,20 +19,19 @@ function startGame(){
     compareSelection(userSelection,computerSelection);
 }
 
-function convertComputerInput(computerSelection){
-    if (computerSelection == 0){
-        return computerSelection = "rock";
-    }
-    else if (computerSelection == 1){
-        return computerSelection = "paper";
-    }
-    else if (computerSelection == 2){
-        return computerSelection = "scissors";
-    }
-}
-
 function convertUserInput(userSelection){
     return userSelection.toLowerCase();
+}
+
+function convertComputerInput(computerSelection){
+    switch(computerSelection){
+        case 0:
+            return computerSelection = "rock";
+        case 1:
+            return computerSelection = "paper";
+        case 2:
+            return computerSelection = "scissors";
+    }
 }
 
 function compareSelection(userSelection,computerSelection){
@@ -44,5 +43,8 @@ function compareSelection(userSelection,computerSelection){
     }
     else if (userSelection == "rock" && computerSelection == "paper" || userSelection == "paper" && computerSelection == "scissors" || userSelection == "scissors" && computerSelection == "rock"){
         return console.log(`You played ${userSelection}. The computer played ${computerSelection}. You lose!`);
+    }
+    else{
+        return console.log(`You can't play if you don't enter in rock, paper, or scissors. Try again.`);
     }
 }
