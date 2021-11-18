@@ -45,6 +45,6 @@ function compareSelection(userSelection,computerSelection){
         return console.log(`You played ${userSelection}. The computer played ${computerSelection}. You lose!`);
     }
     else{
-        return console.log(`You can't play if you don't enter in rock, paper, or scissors. Try again.`);
+        return console.log(`You played ${userSelection}. Please enter in rock, paper, or scissors next time.`);
     }
 }
