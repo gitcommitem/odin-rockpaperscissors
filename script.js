@@ -11,7 +11,10 @@ function userPlay(){
 let point = 0;
 
 function startGame(){
-    game();
+   for (let i = 0; i<=4; i++){
+       game();
+   }
+   tallyPoints(point);
 }
 
 function game(){
@@ -58,3 +61,13 @@ function addPoint(userSelection,computerSelection){
         return point++;
     }
 }
+
+function tallyPoints(point){
+    if(point > "2"){
+        return console.log(`You won ${point} out of 5 rounds. Congratulations! You won!`);
+    }
+    else{
+        return console.log(`You won ${point} out of 5 rounds. Sorry, you lost!`);
+    }
+}
+
