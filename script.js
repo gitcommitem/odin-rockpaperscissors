@@ -8,15 +8,19 @@ function userPlay(){
     return window.prompt("Enter rock, paper, or scissors below.","rock");
 }
 
+let point = 0;
+
 function startGame(){
+    game();
+}
+
+function game(){
     userSelection = userPlay();
-    convertUserInput(userSelection);
     userSelection = convertUserInput(userSelection);
-    computerPlay();
     computerSelection = computerPlay();
-    convertComputerInput(computerSelection);
     computerSelection = convertComputerInput(computerSelection);
     compareSelection(userSelection,computerSelection);
+    addPoint(userSelection,computerSelection);
 }
 
 function convertUserInput(userSelection){
@@ -46,5 +50,11 @@ function compareSelection(userSelection,computerSelection){
     }
     else{
         return console.log(`You played ${userSelection}. Please enter in rock, paper, or scissors next time.`);
+    }
+}
+
+function addPoint(userSelection,computerSelection){
+    if(userSelection == "rock" && computerSelection == "scissors" || userSelection == "paper" && computerSelection == "rock" || userSelection == "scissors" && computerSelection == "paper"){
+        return point++;
     }
 }
