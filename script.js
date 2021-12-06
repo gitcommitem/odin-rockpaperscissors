@@ -6,8 +6,16 @@ cardItem.forEach(function(card){
     card.addEventListener("click",function(){
         card.id
         console.log(card.id)
-    })
+        showResultPanel();
+    });
 });
+
+function showResultPanel(){
+    const resultPanel = document.getElementById("results")
+    if (resultPanel.classList.contains("hidden")){
+        resultPanel.classList.remove("hidden");
+        }
+}
 
 
 
