@@ -1,4 +1,15 @@
-console.log("To start a game, write and enter startGame();");
+//Selecting all elements that are a div with class "choice"
+const cardItem = document.querySelectorAll("div.choice")
+//Using forEach loop to add an eventlistener to each card
+//Clicking on a card will start a game
+cardItem.forEach(function(card){
+    card.addEventListener("click",function(){
+        card.id
+        console.log(card.id)
+    })
+});
+
+
 
 let point = 0;
 
@@ -45,9 +56,8 @@ function tallyPoints(point){
 }
 
 function game(){
-    userSelection = userPlay();
-    userSelection = convertUserInput(userSelection);
-    computerSelection = computerPlay();
+    let userSelection = userPlay();
+    let computerSelection = computerPlay();
     computerSelection = convertComputerInput(computerSelection);
     compareSelection(userSelection,computerSelection);
     addPoint(userSelection,computerSelection);
