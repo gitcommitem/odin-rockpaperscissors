@@ -1,7 +1,10 @@
 # TOP JavaScript Basics Foundations Project - Rock Paper Scissors
-2021/11/18 ~ 2021/11/18
+First Part: 2021/11/18 ~ 2021/11/18
+Second Part: 2021/12/06 ~
 
 ## Objectives
+
+### Part 1
 
 Using JavaScript make a Rock Paper Scissors game to be played from the console.
 
@@ -12,7 +15,19 @@ The game must include:
 - Uses a prompt to get user's input on rock, paper, or scissors
 - be a 5 round game that keeps track of the score and shows who is the winner at the end
 
+### Part 2
+
+Using Javascript event listeners and DOM methods design and add a GUI for the Rock Paper Scissors game.
+
+The game must include:
+- A computer player that will be played against
+- Buttons that users will click to select rock, paper, or scissors
+- Display the running score and declare a winner once one player reaches 5 points
+
+
 ## Learnings
+
+### Part 1
 
 Felt like this was a very fun project. Trying to think through and break down the interactions was a lot of fun. 
 
