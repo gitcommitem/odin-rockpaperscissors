@@ -6,14 +6,6 @@ function computerPlay(){
     return Math.floor(Math.random() * 3);
 }
 
-function userPlay(){
-    return window.prompt("Enter rock, paper, or scissors below.","rock");
-}
-
-function convertUserInput(userSelection){
-    return userSelection.toLowerCase();
-}
-
 function convertComputerInput(computerSelection){
     switch(computerSelection){
         case 0:
@@ -34,9 +26,6 @@ function compareSelection(userSelection,computerSelection){
     }
     else if (userSelection == "rock" && computerSelection == "paper" || userSelection == "paper" && computerSelection == "scissors" || userSelection == "scissors" && computerSelection == "rock"){
         return console.log(`You played ${userSelection}. The computer played ${computerSelection}. You lose!`);
-    }
-    else{
-        return console.log(`You played ${userSelection}. Please enter in rock, paper, or scissors next time.`);
     }
 }
 
