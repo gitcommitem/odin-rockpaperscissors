@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fefefe;
+
+}
+
+section{
+    margin-bottom: 4rem;
+}
+
+.hide{
+    display: none;
+}
+
+.page{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vflex{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.choice{
+    padding: 2rem;
+    background-color: fff;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 350px;
+    transition: 0.15s;
+}
+
+.choice:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 40px 1px rgba(0, 0, 0, 0.06);
+    transition: 0.25s;
+}
+
+.choice p{
+    font-size: 10rem;
+    margin: 0;
+}
+
+p.choice-name{
+    font-size: 3rem;
+}

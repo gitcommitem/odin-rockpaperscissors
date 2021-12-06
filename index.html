@@ -5,23 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div>Display result Here</div>
-    <section>
-        <div>
-            ✊
-            <button>Rock</button>
+    <div class="page">
+    <section class="hide" id="results">
+        <div class="hflex">
+            <div class="vflex" id="user">
+                You
+            </div>
+            <div class="vflex" id="cpu">
+                CPU
+            </div>
         </div>
-        <div>
-            🖐
-            <button>Paper</button>
-        </div>
-        <div>
-            ✌️
-            <button>Scissors</button>
+        <div>Display result here</div>
+    </section>
+
+    <section id="selection">
+        <h2>Select which hand you'd like to play</h2>
+        <div class="hflex">
+            <div class="vflex choice">
+                <p>✊</p>
+                <p class="choice-name">Rock</p>
+             </div>
+            <div class="vflex choice">
+                <p>🖐</p>
+                <p class="choice-name">Paper</p>
+            </div>
+             <div class="vflex choice">
+                <p>✌️</p>
+                <p class="choice-name">Scissors</p>
+            </div>
         </div>
     </section>
+    </div>
 </body>
 </html>
