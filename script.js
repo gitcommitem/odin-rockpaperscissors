@@ -5,8 +5,7 @@ const cardItem = document.querySelectorAll("div.choice")
 cardItem.forEach(function(card){
     card.addEventListener("click",function(){
         let userSelection = card.id
-        let computerSelection = computerPlay();
-        computerSelection = convertComputerInput(computerSelection);
+        let computerSelection = computerChoice();
         compareSelection(userSelection,computerSelection);
         addPoint(userSelection,computerSelection);
         showResultPanel();
@@ -25,18 +24,23 @@ function showResultPanel(){
      }
 }
 
-function computerPlay(){
+function computerChoice(){
+    let computerInput = randomize();
+    return convertComputerInput(computerInput);
+}
+
+function randomize(){
     return Math.floor(Math.random() * 3);
 }
 
-function convertComputerInput(computerSelection){
-    switch(computerSelection){
+function convertComputerInput(computerInput){
+    switch(computerInput){
         case 0:
-            return computerSelection = "rock";
+            return "rock";
         case 1:
-            return computerSelection = "paper";
+            return "paper";
         case 2:
-            return computerSelection = "scissors";
+            return "scissors";
     }
 }
 
