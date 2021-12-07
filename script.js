@@ -4,8 +4,10 @@ const cardItem = document.querySelectorAll("div.choice")
 //Clicking on a card will start a game
 cardItem.forEach(function(card){
     card.addEventListener("click",function(){
-        card.id
-        console.log(card.id)
+        let userSelection = card.id
+        let computerSelection = computerPlay();
+        computerSelection = convertComputerInput(computerSelection);
+        compareSelection(userSelection,computerSelection);
         showResultPanel();
     });
 });
@@ -14,10 +16,8 @@ function showResultPanel(){
     const resultPanel = document.getElementById("results")
     if (resultPanel.classList.contains("hidden")){
         resultPanel.classList.remove("hidden");
-        }
+     }
 }
-
-
 
 let point = 0;
 
@@ -37,14 +37,15 @@ function convertComputerInput(computerSelection){
 }
 
 function compareSelection(userSelection,computerSelection){
+    const judgment = document.getElementById("judge")
     if(userSelection == computerSelection){
-        return console.log(`You played ${userSelection}. The computer played ${computerSelection}. It's a draw!`);
+        judgment.textContent = `You played ${userSelection}. The computer played ${computerSelection}. It's a draw!`;
     }
     else if(userSelection == "rock" && computerSelection == "scissors" || userSelection == "paper" && computerSelection == "rock" || userSelection == "scissors" && computerSelection == "paper"){
-        return console.log(`You played ${userSelection}. The computer played ${computerSelection}. You win!`);
+       judgment.textContent = `You played ${userSelection}. The computer played ${computerSelection}. You win!`;
     }
     else if (userSelection == "rock" && computerSelection == "paper" || userSelection == "paper" && computerSelection == "scissors" || userSelection == "scissors" && computerSelection == "rock"){
-        return console.log(`You played ${userSelection}. The computer played ${computerSelection}. You lose!`);
+        judgment.textContent = `You played ${userSelection}. The computer played ${computerSelection}. You lose!`;
     }
 }
 
@@ -64,10 +65,6 @@ function tallyPoints(point){
 }
 
 function game(){
-    let userSelection = userPlay();
-    let computerSelection = computerPlay();
-    computerSelection = convertComputerInput(computerSelection);
-    compareSelection(userSelection,computerSelection);
     addPoint(userSelection,computerSelection);
 }
 
