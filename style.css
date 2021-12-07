@@ -55,11 +55,28 @@ section{
     transition: 0.25s;
 }
 
-.choice p{
+.choice p, p.emoji{
     font-size: 10rem;
     margin: 0;
 }
 
 p.choice-name{
     font-size: 3rem;
+    margin: 0;
+}
+
+#user, #cpu {
+    width: 350px;
+}
+
+
+#cpu{
+    text-align: right;
+}
+
+#judge{
+    align-self: center;
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;
 }

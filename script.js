@@ -37,17 +37,50 @@ function convertComputerInput(computerSelection){
 }
 
 function compareSelection(userSelection,computerSelection){
+    const userResult = document.querySelector("#user p.choice-name")
+    const computerResult = document.querySelector("#cpu p.choice-name")
+    const userEmoji = document.querySelector("#user p.emoji")
+    const cpuEmoji = document.querySelector("#cpu p.emoji")
     const judgment = document.getElementById("judge")
+
+    //Look into doing a switch? for emoji
+    if (userSelection === "rock"){
+        userEmoji.textContent = "✊";
+    }
+    else if (userSelection === "paper"){
+        userEmoji.textContent = "🖐";
+    }
+    else {
+        userEmoji.textContent = "✌️";
+    }
+
+    if (computerSelection === "rock"){
+        cpuEmoji.textContent = "✊";
+    }
+    else if (computerSelection === "paper"){
+        cpuEmoji.textContent = "🖐";
+    }
+    else {
+        cpuEmoji.textContent = "✌️";
+    }
+
     if(userSelection == computerSelection){
-        judgment.textContent = `You played ${userSelection}. The computer played ${computerSelection}. It's a draw!`;
+        userResult.textContent = `${userSelection}`;
+        computerResult.textContent = `${computerSelection}`;
+        judgment.textContent = "It's a draw!";
     }
     else if(userSelection == "rock" && computerSelection == "scissors" || userSelection == "paper" && computerSelection == "rock" || userSelection == "scissors" && computerSelection == "paper"){
-       judgment.textContent = `You played ${userSelection}. The computer played ${computerSelection}. You win!`;
+        userResult.textContent = `${userSelection}`;
+        computerResult.textContent = `${computerSelection}`;
+       judgment.textContent = "You win!";
     }
     else if (userSelection == "rock" && computerSelection == "paper" || userSelection == "paper" && computerSelection == "scissors" || userSelection == "scissors" && computerSelection == "rock"){
-        judgment.textContent = `You played ${userSelection}. The computer played ${computerSelection}. You lose!`;
+        userResult.textContent = `${userSelection}`;
+        computerResult.textContent = `${computerSelection}`;
+        judgment.textContent = "You lose!";
     }
 }
+
 
 function addPoint(userSelection,computerSelection){
     if(userSelection == "rock" && computerSelection == "scissors" || userSelection == "paper" && computerSelection == "rock" || userSelection == "scissors" && computerSelection == "paper"){
