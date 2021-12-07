@@ -62,6 +62,7 @@ section{
 
 p.choice-name{
     font-size: 3rem;
+    text-transform: capitalize;
     margin: 0;
 }
 
