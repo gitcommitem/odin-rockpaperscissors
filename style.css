@@ -67,7 +67,7 @@ p.choice-name{
 }
 
 #user, #cpu {
-    width: 350px;
+    width: 300px;
 }
 
 
@@ -75,8 +75,7 @@ p.choice-name{
     text-align: right;
 }
 
-#judge{
-    align-self: center;
+#judge,#user-score,#cpu-score{
     font-size: 4rem;
     text-align: center;
     margin: 0;
@@ -85,4 +84,17 @@ p.choice-name{
 #selection h2{
     text-align: center;
     margin-bottom: 3rem;
+}
+
+#judge{
+    margin-bottom: 1rem;
+}
+
+#score{
+   justify-content: space-evenly;
+}
+
+#score-panel{
+    align-self: center;
+    width: 55ch;
 }

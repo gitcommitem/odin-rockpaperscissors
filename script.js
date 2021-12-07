@@ -8,9 +8,15 @@ cardItem.forEach(function(card){
         let computerSelection = computerPlay();
         computerSelection = convertComputerInput(computerSelection);
         compareSelection(userSelection,computerSelection);
+        addPoint(userSelection,computerSelection);
         showResultPanel();
+        displayScore(userPoint,cpuPoint);
+        tallyPoints(userPoint,cpuPoint);
     });
 });
+
+let userPoint = 0;
+let cpuPoint = 0;
 
 function showResultPanel(){
     const resultPanel = document.getElementById("results")
@@ -18,8 +24,6 @@ function showResultPanel(){
         resultPanel.classList.remove("hidden");
      }
 }
-
-let point = 0;
 
 function computerPlay(){
     return Math.floor(Math.random() * 3);
@@ -81,31 +85,29 @@ function compareSelection(userSelection,computerSelection){
     }
 }
 
+function displayScore(userPoint,cpuPoint){
+    const userScore = document.getElementById("user-score")
+    const cpuScore = document.getElementById("cpu-score")
+    userScore.textContent = `${userPoint}`;
+    cpuScore.textContent = `${cpuPoint}`;
+}
+
 
 function addPoint(userSelection,computerSelection){
     if(userSelection == "rock" && computerSelection == "scissors" || userSelection == "paper" && computerSelection == "rock" || userSelection == "scissors" && computerSelection == "paper"){
-        return point++;
+        return userPoint++;
+    }
+    else if (userSelection == "rock" && computerSelection == "paper" || userSelection == "paper" && computerSelection == "scissors" || userSelection == "scissors" && computerSelection == "rock"){
+        return cpuPoint++;
     }
 }
 
-function tallyPoints(point){
-    if(point > 2){
-        return console.log(`You won ${point} out of 5 rounds. Congratulations! You won!`);
+function tallyPoints(userPoint,cpuPoint){
+    if(userPoint === 5){
+        alert("You Win!");
     }
-    else{
-        return console.log(`You won ${point} out of 5 rounds. Sorry, you lost!`);
+    else if (cpuPoint === 5){
+        alert("CPU Win!");
     }
 }
 
-function game(){
-    addPoint(userSelection,computerSelection);
-}
-
-function startGame(){
-    for (let i = 0; i<=4; i++){
-        game();
-    }
-    tallyPoints(point);
-    point = 0;
- }
- 
