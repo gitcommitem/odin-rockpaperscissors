@@ -25,24 +25,16 @@ function showResultPanel(){
 }
 
 function computerChoice(){
-    let computerInput = randomize();
-    return convertComputerInput(computerInput);
+    let randomChoice = choices[randomize()];
+    return randomChoice
 }
 
 function randomize(){
-    return Math.floor(Math.random() * 3);
+    return Math.floor(Math.random() * choices.length);
 }
 
-function convertComputerInput(computerInput){
-    switch(computerInput){
-        case 0:
-            return "rock";
-        case 1:
-            return "paper";
-        case 2:
-            return "scissors";
-    }
-}
+const choices = ["rock","paper","scissors"]
+
 
 function compareSelection(userSelection,computerSelection){
     const userResult = document.querySelector("#user p.choice-name")
