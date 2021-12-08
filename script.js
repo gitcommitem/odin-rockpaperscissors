@@ -33,11 +33,8 @@ cardItem.forEach(function(card){
     });
 });
 
-function showResultPanel(){
-    const resultPanel = document.getElementById("results")
-    if (resultPanel.classList.contains("hidden")){
-        resultPanel.classList.remove("hidden");
-     }
+function randomize(){
+    return Math.floor(Math.random() * choices.length);
 }
 
 function computerChoice(){
@@ -45,8 +42,37 @@ function computerChoice(){
     return randomChoice
 }
 
-function randomize(){
-    return Math.floor(Math.random() * choices.length);
+function compareSelection(userSelection,computerSelection){
+    const judgment = document.getElementById("judge")
+
+    if(userSelection === computerSelection){
+        judgment.textContent = "It's a draw!";
+    }
+    else if(userSelection === counterChoice[computerSelection]){
+       judgment.textContent = "You win!";
+    }
+    else{
+        judgment.textContent = "You lose!";
+    }
+}
+
+function addPoint(userSelection,computerSelection){
+    if(userSelection === counterChoice[computerSelection]){
+        return userPoint++;
+    }
+    else if (computerSelection === counterChoice[userSelection]){
+        return cpuPoint++;
+    }
+    else{
+        //Don't add any points if it's a draw
+    }
+}
+
+function showResultPanel(){
+    const resultPanel = document.getElementById("results")
+    if (resultPanel.classList.contains("hidden")){
+        resultPanel.classList.remove("hidden");
+     }
 }
 
 function displayEmoji(userSelection,computerSelection){
@@ -64,38 +90,11 @@ function displaySelection(userSelection,computerSelection){
     computerResult.textContent = `${computerSelection}`;
 }
 
-function compareSelection(userSelection,computerSelection){
-    const judgment = document.getElementById("judge")
-
-    if(userSelection === computerSelection){
-        judgment.textContent = "It's a draw!";
-    }
-    else if(userSelection === counterChoice[computerSelection]){
-       judgment.textContent = "You win!";
-    }
-    else{
-        judgment.textContent = "You lose!";
-    }
-}
-
 function displayScore(userPoint,cpuPoint){
     const userScore = document.getElementById("user-score")
     const cpuScore = document.getElementById("cpu-score")
     userScore.textContent = `${userPoint}`;
     cpuScore.textContent = `${cpuPoint}`;
-}
-
-
-function addPoint(userSelection,computerSelection){
-    if(userSelection === counterChoice[computerSelection]){
-        return userPoint++;
-    }
-    else if (computerSelection === counterChoice[userSelection]){
-        return cpuPoint++;
-    }
-    else{
-        //Don't add any points if it's a draw
-    }
 }
 
 function tallyPoints(userPoint,cpuPoint){
