@@ -12,12 +12,12 @@ const counterChoice = {
     scissors: "rock"
 };
 
+let userPoint = 0;
+let cpuPoint = 0;
 
-
-//Selecting all elements that are a div with class "choice"
 const cardItem = document.querySelectorAll("div.choice")
-//Using forEach loop to add an eventlistener to each card
-//Clicking on a card will start a game
+
+//Clicking on a card will start a round of rock paper scissors
 cardItem.forEach(function(card){
     card.addEventListener("click",function(){
         let userSelection = card.id
@@ -29,11 +29,9 @@ cardItem.forEach(function(card){
         displaySelection(userSelection,computerSelection);
         displayScore(userPoint,cpuPoint);
         tallyPoints(userPoint,cpuPoint);
+        resetGame(userPoint,cpuPoint);
     });
 });
-
-let userPoint = 0;
-let cpuPoint = 0;
 
 function showResultPanel(){
     const resultPanel = document.getElementById("results")
@@ -97,19 +95,25 @@ function addPoint(userSelection,computerSelection){
     }
     else{
         //Don't add any points if it's a draw
-        return
     }
 }
 
 function tallyPoints(userPoint,cpuPoint){
     if(userPoint === 5){
         alert("You Win!");
-        location.reload();
     }
     else if (cpuPoint === 5){
         alert("CPU Win!");
-        location.reload();
+    }
+    else{
+        //Continue playing new rounds until someone has 5 points
     }
 
+}
+
+function resetGame(userPoint,cpuPoint){
+    if(userPoint === 5 || cpuPoint === 5){
+        location.reload();
+    }
 }
 
