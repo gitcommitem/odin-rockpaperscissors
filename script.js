@@ -26,6 +26,7 @@ cardItem.forEach(function(card){
         addPoint(userSelection,computerSelection);
         showResultPanel();
         displayEmoji(userSelection,computerSelection);
+        displaySelection(userSelection,computerSelection);
         displayScore(userPoint,cpuPoint);
         tallyPoints(userPoint,cpuPoint);
     });
@@ -58,24 +59,23 @@ function displayEmoji(userSelection,computerSelection){
     cpuEmoji.textContent = handEmoji[`${computerSelection}`];
 }
 
-function compareSelection(userSelection,computerSelection){
+function displaySelection(userSelection,computerSelection){
     const userResult = document.querySelector("#user p.choice-name")
     const computerResult = document.querySelector("#cpu p.choice-name")
+    userResult.textContent = `${userSelection}`;
+    computerResult.textContent = `${computerSelection}`;
+}
+
+function compareSelection(userSelection,computerSelection){
     const judgment = document.getElementById("judge")
 
-    if(userSelection == computerSelection){
-        userResult.textContent = `${userSelection}`;
-        computerResult.textContent = `${computerSelection}`;
+    if(userSelection === computerSelection){
         judgment.textContent = "It's a draw!";
     }
-    else if(userSelection == "rock" && computerSelection == "scissors" || userSelection == "paper" && computerSelection == "rock" || userSelection == "scissors" && computerSelection == "paper"){
-        userResult.textContent = `${userSelection}`;
-        computerResult.textContent = `${computerSelection}`;
+    else if(userSelection === counterChoice[computerSelection]){
        judgment.textContent = "You win!";
     }
-    else if (userSelection == "rock" && computerSelection == "paper" || userSelection == "paper" && computerSelection == "scissors" || userSelection == "scissors" && computerSelection == "rock"){
-        userResult.textContent = `${userSelection}`;
-        computerResult.textContent = `${computerSelection}`;
+    else{
         judgment.textContent = "You lose!";
     }
 }
@@ -89,11 +89,15 @@ function displayScore(userPoint,cpuPoint){
 
 
 function addPoint(userSelection,computerSelection){
-    if(userSelection == "rock" && computerSelection == "scissors" || userSelection == "paper" && computerSelection == "rock" || userSelection == "scissors" && computerSelection == "paper"){
+    if(userSelection === counterChoice[computerSelection]){
         return userPoint++;
     }
-    else if (userSelection == "rock" && computerSelection == "paper" || userSelection == "paper" && computerSelection == "scissors" || userSelection == "scissors" && computerSelection == "rock"){
+    else if (computerSelection === counterChoice[userSelection]){
         return cpuPoint++;
+    }
+    else{
+        //Don't add any points if it's a draw
+        return
     }
 }
 
