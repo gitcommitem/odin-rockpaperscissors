@@ -100,9 +100,12 @@ function addPoint(userSelection,computerSelection){
 function tallyPoints(userPoint,cpuPoint){
     if(userPoint === 5){
         alert("You Win!");
+        location.reload();
     }
     else if (cpuPoint === 5){
         alert("CPU Win!");
+        location.reload();
     }
+
 }
 
