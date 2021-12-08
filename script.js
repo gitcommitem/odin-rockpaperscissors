@@ -28,8 +28,7 @@ cardItem.forEach(function(card){
         displayEmoji(userSelection,computerSelection);
         displaySelection(userSelection,computerSelection);
         displayScore(userPoint,cpuPoint);
-        tallyPoints(userPoint,cpuPoint);
-        resetGame(userPoint,cpuPoint);
+        endGame(userPoint,cpuPoint);
     });
 });
 
@@ -97,22 +96,23 @@ function displayScore(userPoint,cpuPoint){
     cpuScore.textContent = `${cpuPoint}`;
 }
 
-function tallyPoints(userPoint,cpuPoint){
+function tallyPoints(userPoint){
     if(userPoint === 5){
         alert("You Win!");
     }
-    else if (cpuPoint === 5){
+    else{
         alert("CPU Win!");
     }
-    else{
-        //Continue playing new rounds until someone has 5 points
-    }
 
 }
 
-function resetGame(userPoint,cpuPoint){
-    if(userPoint === 5 || cpuPoint === 5){
+function resetGame(){
         location.reload();
-    }
 }
 
+function endGame(userPoint,cpuPoint){
+    if(userPoint === 5 || cpuPoint === 5){
+        tallyPoints(userPoint);
+        resetGame();
+}
+}
