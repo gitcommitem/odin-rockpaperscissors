@@ -112,6 +112,7 @@ function tallyPoints(userPoint){
 }
 
 function resetGame(){
+    //timeout for safari and chrome browsers so reload happens after alert pops
     setTimeout(function(){
         location.reload();
        },100);    
