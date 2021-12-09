@@ -68,8 +68,8 @@ function displayEmoji(userSelection,computerSelection){
     const userEmoji = document.querySelector("#user p.emoji")
     const cpuEmoji = document.querySelector("#cpu p.emoji")
 
-    userEmoji.textContent = handEmoji[`${userSelection}`];
-    cpuEmoji.textContent = handEmoji[`${computerSelection}`];
+    userEmoji.textContent = handEmoji[userSelection];
+    cpuEmoji.textContent = handEmoji[computerSelection];
 }
 
 function displaySelection(userSelection,computerSelection){
