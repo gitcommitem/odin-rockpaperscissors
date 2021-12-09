@@ -97,17 +97,24 @@ function displayScore(userPoint,cpuPoint){
 }
 
 function tallyPoints(userPoint){
+    //timeout for safari and chrome browsers to paint updated DOM before alert pops
     if(userPoint === 5){
+       setTimeout(function(){
         alert("You Win!");
+       },100);
     }
     else{
-        alert("CPU Win!");
+        setTimeout(function(){
+            alert("CPU Win!");
+           },100);
     }
 
 }
 
 function resetGame(){
+    setTimeout(function(){
         location.reload();
+       },100);    
 }
 
 function endGame(userPoint,cpuPoint){
