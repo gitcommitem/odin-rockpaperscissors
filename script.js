@@ -22,8 +22,7 @@ cardItem.forEach(function(card){
     card.addEventListener("click",function(){
         let userSelection = card.id
         let computerSelection = computerChoice();
-        compareSelection(userSelection,computerSelection);
-        addPoint(userSelection,computerSelection);
+        decideWinner(userSelection,computerSelection);
         showResultPanel();
         displayEmoji(userSelection,computerSelection);
         displaySelection(userSelection,computerSelection);
@@ -41,29 +40,20 @@ function computerChoice(){
     return randomChoice
 }
 
-function compareSelection(userSelection,computerSelection){
+function decideWinner(userSelection,computerSelection){
     const judgment = document.getElementById("judge")
 
     if(userSelection === computerSelection){
         judgment.textContent = "It's a draw!";
+        //Don't add any points if it's a draw
     }
     else if(userSelection === counterChoice[computerSelection]){
        judgment.textContent = "You win!";
+       return userPoint++;
     }
     else{
         judgment.textContent = "You lose!";
-    }
-}
-
-function addPoint(userSelection,computerSelection){
-    if(userSelection === counterChoice[computerSelection]){
-        return userPoint++;
-    }
-    else if (computerSelection === counterChoice[userSelection]){
         return cpuPoint++;
-    }
-    else{
-        //Don't add any points if it's a draw
     }
 }
 
