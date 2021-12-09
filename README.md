@@ -1,6 +1,7 @@
 # TOP JavaScript Basics Foundations Project - Rock Paper Scissors
 First Part: 2021/11/18 ~ 2021/11/18
-Second Part: 2021/12/06 ~
+
+Second Part: 2021/12/06 ~2021/12/09
 
 ## Objectives
 
@@ -34,3 +35,11 @@ Felt like this was a very fun project. Trying to think through and break down th
 Sometimes when code didn't seem like it was working, it was often because I had just forgot to pass through the arguments.
 
 Thinking about function scope and what variables should be global and what should be local was also interesting.
+
+### Part 2
+
+One of my mentors (@joshwaiam) showed me his approach at part 1 and it helped a lot with thinking about the logic for a rock paper scissors game. Using objects to store the counters so that they can be referenced easily without having to write out a huge long string of conditions the would result in a win or lose helped a lot.
+
+I wanted to focus on refactoring my code this time around and was able to streamline code here and there. I'm starting to get better at thinking about where code can be reduced or merged together. I feel like there should be a way to reduce the amount of code I have when it comes to inserting DOM elements.
+
+I also learned that chrome and safari render differently than firefox in how they handle javascript and so I needed to use a delay for the alert box that pops up when someone wins 5 rounds.
