@@ -38,7 +38,7 @@ Thinking about function scope and what variables should be global and what shoul
 
 ### Part 2
 
-One of my mentors (@joshwaiam) showed me his approach at part 1 and it helped a lot with thinking about the logic for a rock paper scissors game. Using objects to store the counters so that they can be referenced easily without having to write out a huge long string of conditions the would result in a win or lose helped a lot.
+One of my mentors (@joshwaiam) showed me his approach for part 1 and it helped a lot with thinking about the logic for a rock paper scissors game. He used objects to store the counter moves and referenced them when making a decision on who won. This resulted in much more streamlined code and I used this method in part 2.
 
 I wanted to focus on refactoring my code this time around and was able to streamline code here and there. I'm starting to get better at thinking about where code can be reduced or merged together. I feel like there should be a way to reduce the amount of code I have when it comes to inserting DOM elements.
 
